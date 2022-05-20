@@ -13,3 +13,14 @@ export const getSingleCountry = (req, res) => {
         res.status(404).send("Country not found");
     }
 };
+//------- create new country controller ---------//
+export const createNewCountry = (req, res) => {
+   // console.log(req.body);
+    const newCountry = {
+      id: req.body.id,
+      name: req.body.name,
+    };
+    countries.push(newCountry);
+    console.log(newCountry);
+    res.status(201).json(newCountry);
+};
