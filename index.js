@@ -8,7 +8,7 @@ import usersRoutes from "./routes/userRoutes.js";
 const app = express(); //app Objekt kennzeichnet die Express application; es hat Methoden für bspw. das Routen von http requests
 const port = process.env.PORT || 5000;
 
-const users = [
+const countries = [
   { id: 1, name: "Bhutan", alpha2Code: "BT", alpha3Code: "BTN" },
   { id: 1, name: "Bhutan", alpha2Code: "BT", alpha3Code: "BTN" },
   { id: 1, name: "Bhutan", alpha2Code: "BT", alpha3Code: "BTN" },
