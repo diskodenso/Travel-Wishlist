@@ -24,3 +24,14 @@ export const createNewCountry = (req, res) => {
     console.log(newCountry);
     res.status(201).json(newCountry);
 };
+//------- delete country controller ---------//
+export const deleteCountry = (req, res) => {
+    const findCountry = countries.find((country) => country.id == req.params.id);
+    const index = countries.indexOf(findCountry);
+    countries.splice(index, 1);
+    if (findCountry) {
+            res.status(200).send("Country successfully deleted!");
+    } else {
+        res.status(404).send("There is no Country which can be deleted")
+    }
+};
