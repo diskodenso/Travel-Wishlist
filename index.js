@@ -1,5 +1,7 @@
 // import express
 import express from "express";
+// import countriesRouter
+import countriesRouter from "./routes/countriesController.js";
 // import routes
 import usersRoutes from "./routes/userRoutes.js";
 // call express method
@@ -17,8 +19,9 @@ const users = [
 app.use(express.json());
 
 //Middleware, die uns die users routes aus dem userRoutes Modul benutzen lässt
-//app.use("/users", usersRoutes);
+app.use('/api/countries', countriesRouter)
 
+// Api Description
 app
   .route("/")
   .get((req, res) =>
