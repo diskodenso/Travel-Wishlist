@@ -28,6 +28,10 @@ app
     )
   );
 
+app.all("*", (req, res) => {
+    res.status(404).send("This is not a valid endpoint, please have a look into the documentation")
+});
+
 app.listen(port, () => {
     console.log(`This Server is running on http://localhost:${port}`);
 });

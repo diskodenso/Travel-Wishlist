@@ -19,6 +19,8 @@ export const createNewCountry = (req, res) => {
     const newCountry = {
       id: req.body.id,
       name: req.body.name,
+      alpha2Code: req.body.alpha2Code,
+      alpha3Code: req.body.alpha3Code
     };
     countries.push(newCountry);
     console.log(newCountry);
@@ -34,4 +36,15 @@ export const deleteCountry = (req, res) => {
     } else {
         res.status(404).send("There is no Country which can be deleted")
     }
+};
+//------- update/edit country controller ---------//
+export const updateCountry = (req, res) => {
+    const findCountry = countries.find(
+      (country) => country.id == req.params.id
+    );
+    findCountry.name = req.body.name
+    findCountry.alpha2Code = req.body.alpha2Code;
+    findCountry.alpha3Code = req.body.alpha3Code;
+    console.log(findCountry);
+    res.status(200).json(findCountry);
 };
