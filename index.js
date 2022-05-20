@@ -1,12 +1,14 @@
 // import express
 import express from "express";
+// import countriesRouter
+import countriesRouter from "./routes/countriesController.js";
 // import routes
 import usersRoutes from "./routes/userRoutes.js";
 // call express method
 const app = express(); //app Objekt kennzeichnet die Express application; es hat Methoden für bspw. das Routen von http requests
 const port = process.env.PORT || 5000;
 
-const users = [
+const countries = [
   { id: 1, name: "Bhutan", alpha2Code: "BT", alpha3Code: "BTN" },
   { id: 1, name: "Bhutan", alpha2Code: "BT", alpha3Code: "BTN" },
   { id: 1, name: "Bhutan", alpha2Code: "BT", alpha3Code: "BTN" },
@@ -16,9 +18,10 @@ const users = [
 //Middleware, die uns das eingehende request Objekt als JSON erkennen lässt
 app.use(express.json());
 
-//Middleware, die uns die users routes aus dem userRoutes Modul benutzen lässt
-//app.use("/users", usersRoutes);
+//Middleware, die uns die countries routes aus dem countriesRoutes Modul benutzen lässt
+app.use('/api/countries', countriesRouter)
 
+// Api Description
 app
   .route("/")
   .get((req, res) =>
