@@ -18,7 +18,7 @@ const users = [
 //Middleware, die uns das eingehende request Objekt als JSON erkennen lässt
 app.use(express.json());
 
-//Middleware, die uns die users routes aus dem userRoutes Modul benutzen lässt
+//Middleware, die uns die countries routes aus dem countriesRoutes Modul benutzen lässt
 app.use('/api/countries', countriesRouter)
 
 // Api Description
