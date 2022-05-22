@@ -9,7 +9,10 @@ express
 ```bash
 npm i express
 ```
-
+cors
+```bash
+npm i cors
+```
 
 ## Usage
 
