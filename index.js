@@ -14,9 +14,13 @@ const port = process.env.PORT || 5000;
 //   { id: 1, name: "Bhutan", alpha2Code: "BT", alpha3Code: "BTN" },
 // ];
 //Middleware, die uns das eingehende request Objekt als JSON erkennen lässt
-app.use(express.json());
+// will be executed at every request the app receives 
+app.use(cors()); // third party middleware
+app.use(express.json()); // built in middleware in express
+
 
 //Middleware, die uns die countries routes aus dem countriesRoutes Modul benutzen lässt
+// will only be executed if the path is matching
 app.use('/api/countries', countriesRouter)
 
 // Api Description
