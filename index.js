@@ -17,8 +17,8 @@ const port = process.env.PORT || 5000;
 // will be executed at every request the app receives 
 app.use(cors()); // third party middleware
 app.use(express.json()); // built in middleware in express
-
-
+// add inuilt express urlencoded method to recognize the incoming data as strings or arrays
+app.use(express.urlencoded({extended: false}));
 //Middleware, die uns die countries routes aus dem countriesRoutes Modul benutzen lässt
 // will only be executed if the path is matching
 app.use('/api/countries', countriesRouter)
