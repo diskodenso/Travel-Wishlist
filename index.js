@@ -16,6 +16,8 @@ const port = process.env.PORT || 5000;
 //Middleware, die uns das eingehende request Objekt als JSON erkennen lässt
 // will be executed at every request the app receives 
 app.use(cors()); // third party middleware
+// import ejs
+app.set("view engine", "ejs");
 app.use(express.json()); // built in middleware in express
 // add inuilt express urlencoded method to recognize the incoming data as strings or arrays
 app.use(express.urlencoded({extended: false}));
@@ -27,9 +29,7 @@ app.use('/api/countries', countriesRouter)
 app
   .route("/")
   .get((req, res) =>
-    res.send(
-      "<h1>Willkommen auf unserer API</h1><h2>folgende Endpunkte sind verfügbar:</h2><p>/countries -> alle Länder abrufen & neue Länder hinzufügen</p><p>/countries/:id -> einzelnen Länder abrufen, Länder löschen, Länder aktualisieren</p>"
-    )
+    res.render("pages/index", {countryData})
   );
 
 app.all("*", (req, res) => {
