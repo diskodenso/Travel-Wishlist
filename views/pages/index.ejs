@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <%- include('../partials/head'); %>
+
+</head>
+<body>
+    <header>
+        <!-- include header-->
+          <%- include('../partials/header'); %>
+    </header>
+    <main>
+<h1>My Travel Wishlist</h1>
+<h2>a list of places i have visited so far and places i'd still like to see</h2>
+<h3>List of countries:</h3>
+<ul>
+    <% countryData.forEach=(country)=>{ %>
+<li>
+    <strong><%=country.name</strong>
+    <br/>
+
+</li>
+    }
+</ul>
+    </main>
+    <footer>
+        <!-- include footer -->
+    </footer>
+</body>
+</html>
