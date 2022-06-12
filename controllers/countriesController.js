@@ -16,8 +16,8 @@ export const getSingleCountry = (req, res) => {
 //------- create new country controller ---------//
 export const createNewCountry = (req, res) => {
    // console.log(req.body);
+    // add lenght to create unique id lenght +1
     const newCountry = {
-      id: req.body.id,
       name: req.body.name,
       alpha2Code: req.body.alpha2Code,
       alpha3Code: req.body.alpha3Code
